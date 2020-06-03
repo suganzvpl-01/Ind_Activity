@@ -2,6 +2,7 @@ package com.ether.steps;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -69,6 +70,19 @@ public void enter_all_the_inputs() throws Throwable {
 		acc_num = result.getString("Account_Number");
 		desc = result.getString("Description");
 	}
+	   int leftLimit = 97; // letter 'a'
+	    int rightLimit = 122; // letter 'z'
+	    int targetStringLength = 5;
+	    Random random = new Random();
+	    StringBuilder buffer = new StringBuilder(targetStringLength);
+	    for (int i = 0; i < targetStringLength; i++) {
+	        int randomLimitedInt = leftLimit + (int) 
+	          (random.nextFloat() * (rightLimit - leftLimit + 1));
+	        buffer.append((char) randomLimitedInt);
+	    }
+	    String generatedString = buffer.toString();
+    
+	SeleniumDriver.inputValuesInElement(addEditPagelocator.name,name+generatedString);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.name,name);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.email,email);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.phone,phone);
@@ -83,7 +97,7 @@ public void click_the_First_Entry() throws Throwable {
    // throw new PendingException();
 	SeleniumDriver.clickOnTheElement(SeleniumDriver.getDriver().findElement(By.xpath("//table[@class='table table-bordered table-hover table-striped']/tbody/tr/td[1]/a")));
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.name, "");
-	SeleniumDriver.takeScreenShot("toEdit.jpeg");
+	util.captureScreenshot();
 
 }
 

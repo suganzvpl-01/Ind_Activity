@@ -16,7 +16,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
         features = {"src/test/java/Feature_Files/"},
         glue = "com.ether.steps",
         dryRun=false,
-        tags = {"@Test"}
+        tags = {"@Sample"}
         )
 
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {
