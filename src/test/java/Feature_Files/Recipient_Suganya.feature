@@ -1,5 +1,5 @@
-@Sample
-Feature: Test to Add Recipient(Benificiary)
+@Sugan
+Feature: Test to Add/Edit Recipient(Benificiary)
   
   @Test
   Scenario: Case is to add the recipient(Beneficiary)

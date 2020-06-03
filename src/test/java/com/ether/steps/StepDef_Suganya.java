@@ -1,6 +1,7 @@
 package com.ether.steps;
 
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
 
@@ -29,8 +30,8 @@ public class StepDef_Suganya {
 public void home_Page_has_Launched_Deposit_Options_are_only_available_in_Home_Page() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
 	
-	String assertionText = homePagelocator.deposit.getText();	
-	Assert.assertEquals(assertionText, "Go to Deposit");
+	//String assertionText = homePagelocator.deposit.getText();	
+	//Assert.assertEquals(assertionText, "Go to Deposit");
 }
 
 
@@ -70,6 +71,7 @@ public void enter_all_the_inputs() throws Throwable {
 		acc_num = result.getString("Account_Number");
 		desc = result.getString("Description");
 	}
+	
 	   int leftLimit = 97; // letter 'a'
 	    int rightLimit = 122; // letter 'z'
 	    int targetStringLength = 5;
@@ -83,7 +85,6 @@ public void enter_all_the_inputs() throws Throwable {
 	    String generatedString = buffer.toString();
     
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.name,name+generatedString);
-	SeleniumDriver.inputValuesInElement(addEditPagelocator.name,name);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.email,email);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.phone,phone);
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.acctNum,acc_num);
@@ -98,7 +99,6 @@ public void click_the_First_Entry() throws Throwable {
 	SeleniumDriver.clickOnTheElement(SeleniumDriver.getDriver().findElement(By.xpath("//table[@class='table table-bordered table-hover table-striped']/tbody/tr/td[1]/a")));
 	SeleniumDriver.inputValuesInElement(addEditPagelocator.name, "");
 	util.captureScreenshot();
-
 }
 
 @And("^Click on Add/Edit Recipient$")
