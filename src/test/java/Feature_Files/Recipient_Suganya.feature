@@ -2,7 +2,7 @@
 Feature: Test to Add/Edit Recipient(Benificiary)
   
   @Test
-  Scenario: Case is to add the recipient(Beneficiary)
+  Scenario Outline: Case is to add the recipient(Beneficiary)
     	
     	Given Launch url
     	And login with userName and password
@@ -11,7 +11,15 @@ Feature: Test to Add/Edit Recipient(Benificiary)
     	Then Click Add/Edit Recipient from Transfer Menu
     	Then Enter all the inputs
     	And Click on Add/Edit Recipient
-    	Then check the added Recipient
+    	Then check the added Recipient   	
+    Examples: 
+      | ID | 
+      | 1 |
+      | 2 |    
+    	| 3 |
+    	| 4 |
+    	| 5 |
+    	
     	
    @Test
    Scenario: Case is to Edit the Recipient(Beneficiary)
